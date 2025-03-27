@@ -1,0 +1,40 @@
+name: Release
+
+on:
+  release:
+    types:
+      - published
+      - released
+
+env:
+  asset_name: ludndev-rust-hello-world
+  output_name_default: rust-hello-world
+  output_name_windows: rust-hello-world.exe
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Build project
+        run: cargo build --release
+
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: "${{ github.event.release.upload_url }}"
+          asset_path: "${{ github.workspace }}/target/release/${{ matrix.os == 'windows-latest' && env.output_name_windows || env.output_name_default }}"
+          asset_name: "${{ env.asset_name }}-${{ matrix.os }}"
+          asset_content_type: "application/octet-stream"
