@@ -9,6 +9,27 @@ This experimentation will provide invaluable insights into cross-platform Rust d
 
 Please note that this is strictly for testing purposes.
 
+## REGISTRIES
+
+- [] DockerHub 
+- [] GitHub Container Registry
+- [] Gitlab Container Registry
+
+## PLATFORMS
+
+- [] cURL One Line Installer
+- [] PowerShell Installer
+- [] Winget
+- [] Chocolately
+- [] Nuget
+- [] Scoop.sh (Windows)
+- [] Debian/Ubuntu Packages
+- [] Alpine Packages
+- [] Darwin (macOS) as pkg/dmg
+- [] Homebrew (formulae or/and cask)
+- [] MacPorts
+- [] Etc
+
 ## LICENSE
 
 This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
