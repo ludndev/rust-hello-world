@@ -74,5 +74,5 @@ jobs:
 
       - name: Push Docker image to GitHub Container Registry
         run: |
-          docker push ${{ env.image_name }}:${{ github.event.release.tag_name }}
-          docker push ${{ env.image_name }}:latest
+          docker push ${{ env.docker_image_name }}:${{ github.event.release.tag_name }}
+          docker push ${{ env.docker_image_name }}:latest
