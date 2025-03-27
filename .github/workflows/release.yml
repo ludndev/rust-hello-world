@@ -37,5 +37,5 @@ jobs:
         with:
           upload_url: "${{ github.event.release.upload_url }}"
           asset_path: "${{ github.workspace }}/target/release/${{ matrix.os == 'windows-latest' && env.output_name_windows || env.output_name_default }}"
-          asset_name: "${{ env.asset_name }}-${{ matrix.os }}"
+          asset_name: "${{ env.asset_name }}-${{ matrix.os }}${{ matrix.os == 'windows-latest' && '.exe' || '' }}"
           asset_content_type: "application/octet-stream"
