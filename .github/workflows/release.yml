@@ -57,8 +57,7 @@ jobs:
 
       - name: Build and tag Docker image for GitHub Container Registry
         run: |
-          docker build -t "${{ env.github_image_name }}:${{ github.event.release.tag_name }}" .
-          docker tag "${{ env.github_image_name }}:${{ github.event.release.tag_name }}" "${{ env.github_image_name }}:latest"
+          docker build -t "${{ env.github_image_name }}:${{ github.event.release.tag_name }}" -t "${{ env.github_image_name }}:latest" .
 
       - name: Push Docker image to GitHub Container Registry
         run: |
@@ -71,8 +70,7 @@ jobs:
 
       - name: Build and tag Docker image for DockerHub Container Registry
         run: |
-          docker build -t "${{ env.docker_image_name }}:${{ github.event.release.tag_name }}" .
-          docker tag "${{ env.docker_image_name }}:${{ github.event.release.tag_name }}" "${{ env.docker_image_name }}:latest"
+          docker build -t "${{ env.docker_image_name }}:${{ github.event.release.tag_name }}" -t "${{ env.docker_image_name }}:latest" .
 
       - name: Push Docker image to GitHub Container Registry
         run: |
