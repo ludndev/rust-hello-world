@@ -9,6 +9,14 @@ This experimentation will provide invaluable insights into cross-platform Rust d
 
 Please note that this is strictly for testing purposes.
 
+## One Line Installer
+
+FYI, latest release json data come from `https://api.github.com/repos/ludndev/rust-hello-world/releases/latest`
+
+```shell
+curl --proto '=https' --tlsv1.2 -sSf https://ludndev.github.io/rust-hello-world/installer.sh | sh
+```
+
 ## REGISTRIES
 
 - [x] DockerHub Container Registry
