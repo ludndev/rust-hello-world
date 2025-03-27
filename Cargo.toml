@@ -2,5 +2,30 @@
 name = "rust-hello-world"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+authors = ["Judicaël AHYI <ludndev>"]
+homepage = "https://github.com/ludndev/rust-hello-world"
+repository = "https://github.com/ludndev/rust-hello-world"
+documentation = "https://docs.rs/rust-hello-world"
+readme = "README.md"
+keywords = ["rust", "hello-world", "example"]
+categories = ["command-line-utilities"]
+publish = true
 
 [dependencies]
+
+[package.metadata.bundle]
+name = "RustHelloWorld"
+identifier = "com.judicael-ahyi.rust-hello-world"
+icon = ["32x32.png", "128x128.png", "128x128@2x.png"]
+version = "1.0.0"
+resources = ["assets", "images/**/*.png", "secrets/public_key.txt"]
+copyright = "Copyright (c) Judicaël AHYI 2025. All rights reserved."
+category = "Developer Tool"
+short_description = "Rust Demo For Hello World."
+long_description = """
+This is a simple Rust project built for demonstration purposes. Named 'rust-hello-world', the program's sole functionality is to output the phrase 'Hello, World!' to the console. This project is an excellent starting point for beginners wanting to familiarize themselves with the Rust programming language, emphasizing Rust's emphasis on performance, reliability, and productivity. The 'rust-hello-world' project offers a straightforward approach to understanding the workings of a basic Rust application.
+"""
+deb_depends = ["libgl1-mesa-glx", "libsdl2-2.0-0 (>= 2.0.5)"]
+osx_frameworks = ["SDL2"]
+osx_url_schemes = ["com.judicael-ahyi.rust-hello-world"]
