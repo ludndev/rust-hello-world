@@ -25,7 +25,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://ludndev.github.io/rust-hello-world/
 
 ## PLATFORMS
 
-- [] cURL One Line Installer
+- [x] cURL One Line Installer
 - [] PowerShell Installer
 - [] Winget
 - [] Chocolately
