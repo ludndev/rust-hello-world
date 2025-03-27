@@ -7,9 +7,9 @@ on:
 
 env:
   asset_name: rust-hello-world
-  image_name: $asset_name
-  output_name_default: $asset_name
-  output_name_windows: $asset_name.exe
+  image_name: rust-hello-world
+  output_name_default: rust-hello-world
+  output_name_windows: rust-hello-world.exe
 
 jobs:
   build:
