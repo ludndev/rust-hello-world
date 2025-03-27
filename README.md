@@ -11,9 +11,9 @@ Please note that this is strictly for testing purposes.
 
 ## REGISTRIES
 
-- [] DockerHub 
+- [x] DockerHub Container Registry
 - [x] GitHub Container Registry
-- [x] Gitlab Container Registry
+- [] Gitlab Container Registry
 
 ## PLATFORMS
 
