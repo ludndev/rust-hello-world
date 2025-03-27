@@ -9,6 +9,7 @@ env:
   repo_owner: ${{ github.repository_owner }}
   asset_name: rust-hello-world
   image_name: rust-hello-world
+  installer_sh_name: installer.sh
   output_name_default: rust-hello-world
   output_name_windows: rust-hello-world.exe
   github_image_name: "ghcr.io/${{ github.repository_owner }}/rust-hello-world"
@@ -43,6 +44,23 @@ jobs:
           asset_path: "${{ github.workspace }}/target/release/${{ matrix.os == 'windows-latest' && env.output_name_windows || env.output_name_default }}"
           asset_name: "${{ env.asset_name }}-${{ matrix.os }}${{ matrix.os == 'windows-latest' && '.exe' || '' }}"
           asset_content_type: "application/octet-stream"
+
+  publish-installer-sh:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Upload release asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: "${{ github.event.release.upload_url }}"
+        asset_path: "${{ github.workspace }}/installer.sh"
+        asset_name: "${{ env.installer_sh_name }}"
+        asset_content_type: "application/octet-stream"
 
   publish-docker:
     runs-on: ubuntu-latest
