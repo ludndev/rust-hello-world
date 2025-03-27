@@ -6,7 +6,7 @@ on:
       - released
 
 env:
-  asset_name: ludndev-rust-hello-world
+  asset_name: rust-hello-world
   output_name_default: rust-hello-world
   output_name_windows: rust-hello-world.exe
 
