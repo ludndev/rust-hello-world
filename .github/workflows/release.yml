@@ -14,6 +14,7 @@ env:
   output_name_windows: rust-hello-world.exe
   github_image_name: "ghcr.io/${{ github.repository_owner }}/rust-hello-world"
   docker_image_name: "docker.io/${{ secrets.DOCKERHUB_USERNAME }}/rust-hello-world"
+  CRATES_TOKEN: ${{ secrets.CRATES_TOKEN }}
 
 jobs:
   build:
@@ -94,3 +95,17 @@ jobs:
         run: |
           docker push ${{ env.docker_image_name }}:${{ github.event.release.tag_name }}
           docker push ${{ env.docker_image_name }}:latest
+
+  publish-crates:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build project
+        run: cargo build --release
+
+      - name: Publish to Crates.io
+        run: cargo publish --token ${CRATES_TOKEN}
