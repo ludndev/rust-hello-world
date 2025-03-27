@@ -11,8 +11,8 @@ env:
   image_name: rust-hello-world
   output_name_default: rust-hello-world
   output_name_windows: rust-hello-world.exe
-  github_image_name: "${{ env.repo_owner }}/${{ env.image_name }}"
-  docker_image_name: "${{ secrets.DOCKERHUB_USERNAME }}/${{ env.image_name }}"
+  github_image_name: "${{ github.repository_owner }}/rust-hello-world"
+  docker_image_name: "${{ secrets.DOCKERHUB_USERNAME }}/rust-hello-world"
 
 jobs:
   build:
